@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<script type='text/javascript' src='scripts/index.js'></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title>Stay Organized</title>
+	</head>
+	<body>
+		<h1 id="test"></h1>
+
+		<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyBPFJazM25T0FrFZiWMl4Wy-WBvOCdnMq0",
+		    authDomain: "todolistapp-6bae9.firebaseapp.com",
+		    databaseURL: "https://todolistapp-6bae9.firebaseio.com",
+		    storageBucket: "todolistapp-6bae9.appspot.com",
+		    messagingSenderId: "993685835532"
+		  };
+		  firebase.initializeApp(config);
+
+		  var test = document.getElementById("test");
+		  var dbRef = firebase.database().ref();
+		</script>
+		
+		
+
+
+
+		<div class='header'>
+			<h1>Stay Organized<sup>TM</sup></h1>
+		</div>
+		<div class='b'>
+			<div class='left'>
+			<p>Keep track of your activities with <em>Stay Organized</em> and get the
+				best out of your time</p>
+			</div>
+			<div class='forms'>
+				<form action='stayorg.html' onSubmit='return validateSignUp();' method='GET'>
+					<table class='table'>
+						<tr>
+							<th></th>
+							<td></td>
+							<td><h3>Sign Up</h3></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>Name:</td>
+							<td><input type='text' name='name' id='name'/> </br></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>User Name:</td>
+							<td><input type='text' name='username'/></br></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>Email:</td>
+							<td><input type='text' name='email' id='signUpEmail'/> </br></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>Password:</td>
+							<td><input type='password' name='pword' id='signUpPword'/> </br></td>
+							<td></td>
+						</tr><tr>
+							<th></th>
+							<td></td>
+							<td><input type='submit' name='submit' value='Sign Up' onClick=""/>
+							 <a href="index.html">Sign In</a></td>
+							<td></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<div>
+			<p>Keep track of your activities with <em>Stay Organized</em> and get the
+				best out of your time</p>
+		</div>
+	</body>
+</html>

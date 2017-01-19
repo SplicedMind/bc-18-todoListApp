@@ -1,40 +1,21 @@
-
-var firebase = require('firebase');
-
 function validateSignUp()
 {
-	
+
 }
 
-function submit() {
-	window.alert("submit called");
-  	/*firebase.database().ref('users/' + userId).set({
-    username: email,
-    password: pword
-  });*/
+function submit()
+{
+
 }
 
 function signup()
 {
-	var email= document.getElementById('semail').value;
-	var pword = document.getElementById('spword').value;
-	var userId = 12;
-	window.alert("Sign In Called " + email + ":"+ pword);
-	firebase.database().ref('users/' + userId).set({
-    username: email,
-    password: pword
-    
-  });
 
 }
 
-var email= document.getElementById('semail');
-var button = document.getElementById('butt');
 function signin()
 {
-	var dbRef = firebase.database().ref();
-	dbRef.child("text").set("Akin");
-	window.alert('Called');
+
 }
 
 function cursorChange()
@@ -45,7 +26,6 @@ function cursorChange()
 
 function createList()
 {
-
 	var listHolder = document.getElementById('listHolder');
 	var newList = document.createElement('div');
 	var brake = document.createElement('br');
@@ -58,65 +38,77 @@ function createList()
 	canbutt.type = 'button';
 	canbutt.value = 'X';
 	addbutt.value = 'Add List';
-	newCard.placeholder = 'List Title';
-	addbutt.id = 'ad';//Math.floor((Math.random() * 10) + 1);
-	newCard.id = 'newCard';//Math.floor((Math.random() * 10) + 20);
-	newList.id = 'listHold';//lMath.floor((Math.random() * 10) + 30);
+	newCard.placeholder = 'Add List Title';
+	newCard.id = 'newCard';
+	newCard.className = 'genCard';
+	newList.className = 'genList';
+	newList.id = 'listHold';
+	addbutt.className = 'addButt';
+
 
 	newList.appendChild(newCard);
 	newList.appendChild(brake);
 	newList.appendChild(addbutt);
 	newList.appendChild(canbutt);
 
-	newList.style.float = 'left';
-	newList.style.margin = '10px 10px 10px 10px';
-	newList.style.border = '1px solid green';
-	newList.style.padding = '10px 5px 10px 5px';
-	newList.style.background = 'blue';
-
-	newCard.style.display = 'table-caption'; 
-	newCard.style.font = '15px arial, sans-serif';
+	newCard.style.display = 'table-caption';
+	newCard.style.font = '15px Cambria, serif';
 
 	addbutt.style.margin = '5px 2px 1px 2px';
 	canbutt.style.margin = '5px 2px 1px 2px';
 
 	listHolder.appendChild(newList);
+	document.querySelector('body').addEventListener('click', function(event) {
+  if (event.target.className.toLowerCase() === 'addbutt') {
+		var butns = document.getElementsByClassName('addButt');
+		for (var i = 0; i < butns.length; i++) {
+    var butn = butns[i];
 
-	document.getElementById('ad').addEventListener('click', addCard);
+    butn.onclick = addCard;
+  }
+  }
+});
+
+	//document.getElementsByTagName('input').className('addButt').addEventListener('click', addCard);
 }
 
 
 function addCard()
 {
-	window.alert('Called');
 	if(this.value === 'Add Card')
 	{
-		var child = document.getElementById('newCard');
 		var card = document.createElement('input');
+		var chk = document.createElement('input');
 		var brake = document.createElement('br');
-		var element = document.getElementById('listHold');
-	
+		var br = this.previousSibling;
+		var child = br.previousSibling;
+		var element = this.parentNode;
+
 		element.insertBefore(card, child);
+		element.insertBefore(chk, child);
 		element.insertBefore(brake, child);
-		card.value = document.getElementById('newCard').value;
+
+		card.value = br.previousSibling.value;
 		card.type = 'text';
-		card.style.margin = '5px 3px 5px 3px';
-		card.style.float = 'initial';
-		card.style.border = '1px dashed brown';
+		chk.type = 'checkbox';
+		chk.className = 'genChk';
+		card.className = 'cardClass';
+
 		child.value = null;
 	}
 	else if(this.value === 'Add List')
 	{
-		window.alert('kkjjj');
-		var child = document.getElementById('newCard');
-		var cardTitleHolder = document.createElement('h3');
-		var element = document.getElementById('listHold');
-		var node = document.createTextNode(document.getElementById('newCard').value);
-		cardTitleHolder.appendChild(node);
+		var cardTitleHolder = document.createElement('h4');
+		var brake = document.createElement('br');
+		var br = this.previousSibling;
+		var node = document.createTextNode(br.previousSibling.value);
+		var child = br.previousSibling;
+		var element = this.parentNode;
 
+		cardTitleHolder.appendChild(node);
 		element.insertBefore(cardTitleHolder, child);
+		child.placeholder = 'Add Card';
 		child.value = null;
 		this.value = 'Add Card';
 	}
-	
 }

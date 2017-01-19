@@ -16,7 +16,7 @@
 		</div>
 			<div class='left'>
 				<div class='forms' id="login">
-					<form onSubmit="signin();" action="stayorg"
+					<form onSubmit="return signin();" action="stayorg"
 						 method="GET">
 					<table class='table'>
 						<tr>
@@ -25,7 +25,7 @@
 						<tr>
 							<th></th>
 							<td class='label'>Email:</td>
-							<td><input type='text' class='inputText' id='semail'/> </br></td>
+							<td><input type='text' class='inputText' id='semail' onclick="clear();"/> </br></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -38,7 +38,9 @@
 							<td></td>
 							<td><input id='butt' type="submit" name="button" value="Sign In"/>
 						 	<a href="/signup">Sign Up</a></td>
-							<td></td>
+						</tr>
+						<tr>
+							<td colspan="4" id="err"></td>
 						</tr>
 					</table>
 				</form>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>				
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>		
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<title>Stay Organized</title>
-
 		<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
 		<script type='text/javascript' src='scripts/index.js'></script>
 	</head>
@@ -12,41 +11,38 @@
 			<h1>Stay Organized<sup>TM</sup></h1>
 		</div>
 		<div class='b'>
-			<div class='left'>
 			<p>Keep track of your activities with <em>Stay Organized</em> and get the
 				best out of your time</p>
+		</div>
+			<div class='left'>
+				<div class='forms' id="login">
+					<form onSubmit="signin();" action="stayorg"
+						 method="GET">
+					<table class='table'>
+						<tr>
+							<td colspan="4"><h3 id="loginhead">Sign In</h3></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>Email:</td>
+							<td><input type='text' class='inputText' id='semail'/> </br></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th></th>
+							<td class='label'>Password:</td>
+							<td><input type='password' class='inputText' id='spword'/> </br></td>
+							<td></td>
+						</tr><tr>
+							<th></th>
+							<td></td>
+							<td><input id='butt' type="submit" name="button" value="Sign In"/>
+						 	<a href="/signup">Sign Up</a></td>
+							<td></td>
+						</tr>
+					</table>
+				</form>
 			</div>
-			<div class='forms'>
-				<form onSubmit="signin();" action=""
-					 method="GET">
-				<table class='table'>
-					<tr>
-						<th></th>
-						<td></td>
-						<td><h3>Sign In</h3></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th></th>
-						<td class='label'>Email:</td>
-						<td><input type='text' name='email' id='semail'/> </br></td>
-						<td></td>
-					</tr>
-					<tr>
-						<th></th>
-						<td class='label'>Password:</td>
-						<td><input type='password' name='pword' id='spword'/> </br></td>
-						<td></td>
-					</tr><tr>
-						<th></th>
-						<td></td>
-						<td><input id='butt' type="button" name="button" value="Sign In" 
-							onClick='signin();'/> <a href="signup">Sign Up</a></td>
-						<td></td>
-					</tr>
-				</table>
-			</form>
-		</div>			
 		</div>
 		<div>
 		</div>

@@ -33,6 +33,10 @@ header
 	padding :10px 5px 10px 5px;
 	background : DarkTurquoise;
 }
+#signup
+{
+	text-align: center;
+}
 sup
 {
 	font-size: 15px;
@@ -57,7 +61,12 @@ sup
 }
 #login
 {
-		height: 200px;
+		height: 220px;
+}
+#err
+{
+	text-align: center;
+	color: red;
 }
 #loginhead
 {

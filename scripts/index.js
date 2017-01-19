@@ -50,28 +50,22 @@ function createList()
 	var canbutt = document.createElement('input');
 
 	addbutt.type = 'button';
+	addbutt.value = 'Add List';
+	addbutt.className = 'addButt';
+	newCard.id = 'newCard';
 	newCard.type = 'text';
+	newCard.className = 'genCard';
+	newCard.placeholder = 'Add List Title';
 	canbutt.type = 'button';
 	canbutt.value = 'X';
-	addbutt.value = 'Add List';
-	newCard.placeholder = 'Add List Title';
-	newCard.id = 'newCard';
-	newCard.className = 'genCard';
-	newList.className = 'genList';
+	canbutt.className = "deList";
 	newList.id = 'listHold';
-	addbutt.className = 'addButt';
-
+	newList.className = 'genList';
 
 	newList.appendChild(newCard);
 	newList.appendChild(brake);
 	newList.appendChild(addbutt);
 	newList.appendChild(canbutt);
-
-	newCard.style.display = 'table-caption';
-	newCard.style.font = '15px Cambria, serif';
-
-	addbutt.style.margin = '5px 2px 1px 2px';
-	canbutt.style.margin = '5px 2px 1px 2px';
 
 	listHolder.appendChild(newList);
 
@@ -84,6 +78,17 @@ function createList()
   	}
 	}
 });
+
+document.querySelector('body').addEventListener('click', function(event) {
+if (event.target.className.toLowerCase() === 'delist') {
+		var butns = document.getElementsByClassName('deList');
+		for (var i = 0; i < butns.length; i++) {
+		var butn = butns[i];
+		butn.onclick = delCard;
+	}
+}
+});
+
 document.querySelector('body').addEventListener('drop', function(event) {
 		if (event.target.className.toLowerCase() === 'genlist') {
 				var holders = document.getElementsByClassName('genList');
@@ -115,6 +120,20 @@ document.querySelector('body').addEventListener('drop', function(event) {
 });
 }
 
+function delCard()
+{
+	window.alert('delCard Called');
+	var parent = this.parentNode;
+	var child = this.parentNode.childNodes[1];
+	if(this.parentNode.childNodes.length >= 6)
+	{
+		parent.removeChild(child);
+	}
+	else
+	{
+		parent.remove();
+	}
+}
 
 function addCard()
 {
@@ -130,12 +149,12 @@ function addCard()
 
 		cardcontainer.appendChild(card);
 		cardcontainer.appendChild(chk);
+		cardcontainer.appendChild(brake);
 		cardcontainer.draggable = "true";
 		cardcontainer.className = "draggable-div";
 		cardcontainer.id = "container";
 
 		element.insertBefore(cardcontainer, child);
-		element.insertBefore(brake, child);
 
 		card.value = br.previousSibling.value;
 		card.type = 'text';

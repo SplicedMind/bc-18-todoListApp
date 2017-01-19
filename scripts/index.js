@@ -26,12 +26,43 @@ function submit()
 
 function signup()
 {
+	var username = document.getElementById('uname').value;
+	var name = document.getElementById('name').value;
+	var email = document.getElementById('signUpEmail').value;
+	var pword = document.getElementById('signUpPword').value;
+	if(email.includes('@') === true && email.includes(/\s/) === false &&
+	 		email.includes('.') === true && pwprd.length >=6 && name.length >=6 &&
+ 			uname.length >=4)
+	{
+		return true;
+	}
+	else
+	{
+			return false;
+	}
+}
+function clear()
+{
 
+	document.getElementById('err').innerHTML = '';
+	return true;
 }
 
 function signin()
 {
-
+	var email = document.getElementById('semail').value;
+	var pword = document.getElementById('spword').value;
+	if(email.includes('@')=== true && email.includes(/\s/) === false &&
+	 		email.includes('.') === true && pwprd.length >=6)
+	{
+		return true;
+	}
+	else
+	{
+		document.getElementById('err').innerHTML = "ERROR!!! Please check your email "+
+		"and password";
+		return false;
+	}
 }
 
 function cursorChange()
@@ -72,10 +103,11 @@ function createList()
 	document.querySelector('body').addEventListener('click', function(event) {
   if (event.target.className.toLowerCase() === 'addbutt') {
 			var butns = document.getElementsByClassName('addButt');
-			for (var i = 0; i < butns.length; i++) {
-	    var butn = butns[i];
-	    butn.onclick = addCard;
-  	}
+			for (var i = 0; i < butns.length; i++)
+			{
+		    var butn = butns[i];
+		    butn.onclick = addCard;
+  		}
 	}
 });
 
@@ -122,7 +154,6 @@ document.querySelector('body').addEventListener('drop', function(event) {
 
 function delCard()
 {
-	window.alert('delCard Called');
 	var parent = this.parentNode;
 	var child = this.parentNode.childNodes[1];
 	if(this.parentNode.childNodes.length >= 6)

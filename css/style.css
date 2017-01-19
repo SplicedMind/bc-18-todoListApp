@@ -1,0 +1,126 @@
+.header
+{
+	text-align: left;
+	text-decoration: none;
+	border-top-style: inset;
+	border-bottom-style: inset;
+	background: beige;
+	font-family: Times, serif;
+	font-style: italic;
+	text-indent: 5px;
+	color: blue;
+	text-shadow: 1px 1px;
+}
+h4
+{
+	font-family: Cambria;
+	font-size: 20px;
+}
+header
+{
+	float: right;
+}
+#signout
+{
+	float: right;
+}
+.genList
+{
+	float : left;
+	margin : 10px 10px 10px 10px;
+	border : 1px solid green;
+	border-radius: 15px;
+	padding :10px 5px 10px 5px;
+	background : DarkTurquoise;
+}
+sup
+{
+	font-size: 15px;
+}
+.cardClass
+{
+	border-top-style: inset;
+
+	background-color: cyan;
+	margin: 10px 5px 10px 5px;
+	width: 300px;
+	height: 25px;
+}
+#list
+{
+	cursor: hand;
+}
+.genCard
+{
+	height: 30px;
+	width: 300px;
+}
+#login
+{
+		height: 200px;
+}
+#loginhead
+{
+	font-size: 25px;
+	font-weight: bold;
+	color: blue;
+	filter: hue-rotate();
+	font-display: block;
+	text-align: center;
+	font-family: Cambria;
+}
+.forms
+{
+	float: center;
+	text-align: center;
+	border: 2px solid green;
+	border-radius: 15px;
+	margin: 2px;
+	width: 500px;
+	height: 300px;
+	background-color: DarkTurquoise;
+}
+.inputText
+{
+	font-family: Century Schoolbook;
+	font-size: 15px;
+	border-style: groove;
+	width: 350px;
+	height: 30px;
+}
+#addList
+{
+	width: 70px;
+	font-size: 15px;
+	margin-left: 10px;
+	text-align: center;
+	border-style: outset;
+	border: 3px solid green;
+}
+.b
+{
+	float: left;
+	margin-top: 150px;
+	font-family: serif;
+	width: 300px;
+	margin-left: 50px;
+}
+.left
+{
+	float: left;
+	background-color: Cyan;
+	border-radius: 15px;
+	border: 0px solid green;
+	width: 300px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 100px;
+}
+.table
+{
+	text-align: left;
+}
+.label
+{
+	text-align: right;
+}

@@ -1,3 +1,19 @@
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+		var child = ev.target.childNodes[1];
+		var moved = document.getElementById(data);
+		ev.target.insertBefore(moved, child);
+}
+
 function validateSignUp()
 {
 
@@ -58,18 +74,45 @@ function createList()
 	canbutt.style.margin = '5px 2px 1px 2px';
 
 	listHolder.appendChild(newList);
+
 	document.querySelector('body').addEventListener('click', function(event) {
   if (event.target.className.toLowerCase() === 'addbutt') {
-		var butns = document.getElementsByClassName('addButt');
-		for (var i = 0; i < butns.length; i++) {
-    var butn = butns[i];
+			var butns = document.getElementsByClassName('addButt');
+			for (var i = 0; i < butns.length; i++) {
+	    var butn = butns[i];
+	    butn.onclick = addCard;
+  	}
+	}
+});
+document.querySelector('body').addEventListener('drop', function(event) {
+		if (event.target.className.toLowerCase() === 'genlist') {
+				var holders = document.getElementsByClassName('genList');
+				for (var i = 0; i < holders.length; i++) {
+		    var holder = holders[i];
+		    holder.ondrop = drop;
+	  	}
+		}
+	});
 
-    butn.onclick = addCard;
-  }
+	document.querySelector('body').addEventListener('dragover', function(event) {
+			if (event.target.className.toLowerCase() === 'genlist') {
+					var holders = document.getElementsByClassName('genList');
+					for (var i = 0; i < holders.length; i++) {
+			    var holder = holders[i];
+					holder.ondragover = allowDrop;
+		  	}
+			}
+		});
+
+	document.querySelector('body').addEventListener('dragstart', function(event) {
+			if (event.target.className.toLowerCase() === 'draggable-div') {
+					var divs = document.getElementsByClassName('draggable-div');
+					for (var i = 0; i < divs.length; i++) {
+			    var div = divs[i];
+			    div.ondragstart = drag;
+		  	}
   }
 });
-
-	//document.getElementsByTagName('input').className('addButt').addEventListener('click', addCard);
 }
 
 
@@ -78,14 +121,20 @@ function addCard()
 	if(this.value === 'Add Card')
 	{
 		var card = document.createElement('input');
+		var cardcontainer = document.createElement('div');
 		var chk = document.createElement('input');
 		var brake = document.createElement('br');
 		var br = this.previousSibling;
 		var child = br.previousSibling;
 		var element = this.parentNode;
 
-		element.insertBefore(card, child);
-		element.insertBefore(chk, child);
+		cardcontainer.appendChild(card);
+		cardcontainer.appendChild(chk);
+		cardcontainer.draggable = "true";
+		cardcontainer.className = "draggable-div";
+		cardcontainer.id = "container";
+
+		element.insertBefore(cardcontainer, child);
 		element.insertBefore(brake, child);
 
 		card.value = br.previousSibling.value;

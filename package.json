@@ -16,6 +16,9 @@
     "url": "https://github.com/SplicedMind/bc-18-todoListApp/issues"
   },
   "homepage": "https://github.com/SplicedMind/bc-18-todoListApp#readme",
+  "engines": {
+     "node": "5.9.1"
+   },
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.0",

@@ -14,12 +14,7 @@ function drop(ev) {
 		ev.target.insertBefore(moved, child);
 }
 
-function validateSignUp()
-{
-
-}
-
-function submit()
+function signout()
 {
 
 }
@@ -38,6 +33,8 @@ function signup()
 	}
 	else
 	{
+    document.getElementById('er').innerHTML = "ERROR!!! Check and fill again";
+
 			return false;
 	}
 }
@@ -50,6 +47,13 @@ function clear()
 
 function signin()
 {
+  function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 	var email = document.getElementById('semail').value;
 	var pword = document.getElementById('spword').value;
 	if(email.includes('@')=== true && email.includes(/\s/) === false &&
@@ -188,7 +192,7 @@ function addCard()
 		element.insertBefore(cardcontainer, child);
 
 		card.value = br.previousSibling.value;
-		card.type = 'text';
+    card.type = "text"
 		chk.type = 'checkbox';
 		chk.className = 'genChk';
 		card.className = 'cardClass';

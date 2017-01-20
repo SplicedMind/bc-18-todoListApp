@@ -1,4 +1,5 @@
 var express = require('express');
+var cool = require('cool-ascii-faces');
 var firebase = require('firebase');
 var bodyParser = require('body-parser');
 var app = express();
@@ -13,6 +14,9 @@ var meRef = ref.child("message");
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
 app.use('/css', express.static('css'));
 app.use('/scripts', express.static('scripts'));
 
@@ -33,4 +37,5 @@ app.get('/stayorg', function(req, res){
 });
 
 
-app.listen(2020);
+app.listen(app.get('port'), function() {
+});

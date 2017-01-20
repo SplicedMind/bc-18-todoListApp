@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/SplicedMind/bc-18-todoListApp#readme",
   "engines": {
-     "node": "5.9.1"
-   },
+    "node": "5.9.1"
+  },
   "dependencies": {
     "body-parser": "^1.16.0",
+    "cool-ascii-faces": "1.3.4",
     "express": "^4.14.0",
     "firebase": "^3.6.6"
   }
